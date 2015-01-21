@@ -82,8 +82,8 @@ int main(int argc, char *argv[])
 	}
 
 	FILE *fp = NULL;
-	int n = 0, //rows
-		m = 0; //cols
+	int n = 0; //rows
+	int m = 0; //cols
 
 	if (strcmp(argv[2], "-f") == 0) {
 		fp = fopen(argv[3], "w");
