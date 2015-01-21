@@ -1,3 +1,5 @@
+//to add: remove_node()
+
 #include <stdio.h>
 #include <stdlib.h>
 
