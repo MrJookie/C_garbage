@@ -151,7 +151,7 @@ int main(int argc, char *argv[])
 	FILE *fp;
 	node *word_list = NULL;
 
-	fp = fopen("C:\\Users\\admin\\Documents\\Visual Studio 2013\\Projects\\c\\Debug\\test.txt", "r");
+	fp = fopen("words.txt", "r");
 	if (!fp)
 		error(1);
 
