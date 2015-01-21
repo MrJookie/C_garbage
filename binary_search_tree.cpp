@@ -59,7 +59,7 @@ int deallocate_tree(node *root)
 	free(root);
 }
 
-int find_min(node *root)
+node *find_min(node *root)
 {
 	if (root == NULL)
 		return 0;
@@ -67,18 +67,49 @@ int find_min(node *root)
 	while (root->left != NULL)
 		root = root->left;
 
-	return root->data;
+	return root;
 }
 
 //same logic as find_min written recursively
-int find_max(node *root)
+node *find_max(node *root)
 {
 	if (root == NULL)
 		return 0;
 	else if (root->right == NULL)
-		return root->data;
+		return root;
 
 	return find_max(root->right);
+}
+
+node *remove_node(node *root, int data)
+{
+	if (root == NULL)
+		return root;
+	else if (data < root->data)
+		root->left = remove_node(root->left, data);
+	else if (data > root->data)
+		root->right = remove_node(root->right, data);
+	else {
+		//case 1, 2, 3, 4: leaf node (no child), only right child, only left child, two children
+		if (root->left == NULL && root->right == NULL) {
+			free(root);
+			root = NULL;
+		} else if (root->left == NULL) {
+			node *tmp = root;
+			root = root->right;
+			free(tmp);
+		} else if (root->right == NULL) {
+			node *tmp = root;
+			root = root->left;
+			free(tmp);
+		} else {
+			node *tmp = find_min(root->right);
+			root->data = tmp->data;
+			root->right = remove_node(root->right, tmp->data);
+		}
+	}
+
+	return root;
 }
 
 int main(int agrc, char *argv[])
@@ -91,12 +122,15 @@ int main(int agrc, char *argv[])
 	root = insert(root, 5);
 	root = insert(root, 40);
 
+	root = remove_node(root, 20);
+
 	found = search(root, 20);
 	if (found)
 		printf("Found: %d, left: %p, right: %p\n", found->data, found->left, found->right);
 
-	printf("Minimum: %d\n", find_min(root));
-	printf("Maximum: %d\n", find_max(root));
+
+	printf("Minimum: %d\n", find_min(root)->data);
+	printf("Maximum: %d\n", find_max(root)->data);
 
 	deallocate_tree(root);
 
