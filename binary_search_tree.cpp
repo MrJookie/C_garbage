@@ -110,7 +110,7 @@ node *remove_node(node *root, int data)
 	return root;
 }
 
-int main(int agrc, char *argv[])
+int main(int argc, char *argv[])
 {
 	node *root = NULL;
 	node *found;
