@@ -96,10 +96,10 @@ double compute_det(double **matrix, int n)
 		det = 0;
 
 		for (whole_matrix = 0; whole_matrix < n; whole_matrix++) {
-			minor = (double **)malloc((n - 1)* sizeof(double *));
+			minor = (double **)malloc((n - 1) * sizeof(double *));
 
 			for (i = 0; i < n - 1; i++)
-				minor[i] = (double *)malloc((n - 1)* sizeof(double));
+				minor[i] = (double *)malloc((n - 1) * sizeof(double));
 
 			for (i = 0; i < n - 1; i++) {
 				submatrix = 0;
