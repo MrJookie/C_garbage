@@ -28,8 +28,11 @@ int lcm(int a, int b)
 int **allocate_matrix(int n, int m)
 {
 	int **ptr = (int **)malloc(n * sizeof(int *));
-	for (int i = 0; i < n; i++) 
+	for (int i = 0; i < n; i++) {
 		ptr[i] = (int *)malloc(m * sizeof(int));
+		if (!ptr[i])
+			exit(1)
+	}
 	
 	if (!ptr)
 		exit(1);

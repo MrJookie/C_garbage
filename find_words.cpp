@@ -86,8 +86,11 @@ node *find_words(FILE *fp, node *word_list)
 		} else {
 			word[len++] = c;
 			
-			if (len == buf)
-				word = (char *)realloc(word, sizeof(char) * (buf *= 2));
+			if (len == buf) {
+				word = (char *)realloc(word, sizeof(char)* (buf *= 2));
+				if (!word)
+					error(1);
+			}
 		} 
 	}
 
