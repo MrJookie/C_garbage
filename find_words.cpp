@@ -121,7 +121,7 @@ void print_list(node *word_list)
 			}
 
 			if (iterator->next == NULL) {
-				printf("Nalezena slova: %d | %s \n", current->count, current->word);
+				printf("Words found: %d | %s \n", current->count, current->word);
 				current->count = 0;
 			}
 
