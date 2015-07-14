@@ -27,6 +27,16 @@ int isPower2(int num)
 	return !((num - 1) & num);
 }
 
+bool isOdd(int num)
+{
+	return num & 1;
+}
+
+unsigned int MAX_INT()
+{
+	return ~0U >> 1;
+}
+
 int main()
 {
 	int item_1 = 0x001000;
