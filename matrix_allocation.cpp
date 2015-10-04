@@ -19,7 +19,7 @@ unsigned slow_gcd(unsigned a, unsigned b)
 unsigned gcd(unsigned a, unsigned b)
 {
 	while (b != 0) {
-		char r = a % b;
+		unsigned r = a % b;
 		a = b;
 		b = r;
 	}
