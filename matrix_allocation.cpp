@@ -27,7 +27,6 @@ unsigned gcd(unsigned a, unsigned b)
 	return a;
 }
 
-
 //Least Common Multiple
 int lcm(int a, int b)
 {
