@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-//Greatest Common Divisor
-int gcd(int a, int b)
+//Greatest Common Divisor - release x64 slow_gcd(11111184467, 11111184468) : 11.6s
+unsigned slow_gcd(unsigned a, unsigned b)
 {
 	if (a == 0)
 		return b;
@@ -14,6 +14,19 @@ int gcd(int a, int b)
 
 	return a;
 }
+
+//Greatest Common Divisor - release x64 gcd(11111184467, 11111184468) : 0.00013s
+unsigned gcd(unsigned a, unsigned b)
+{
+	while (b != 0) {
+		char r = a % b;
+		a = b;
+		b = r;
+	}
+
+	return a;
+}
+
 
 //Least Common Multiple
 int lcm(int a, int b)
