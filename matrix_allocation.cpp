@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-//Greatest Common Divisor - release x64 slow_gcd(11111184467, 11111184468) : 11.6s
+//Greatest Common Divisor - release x64 slow_gcd(11111184467, 11111184468) : 11.6s | Euclid's original version
 unsigned slow_gcd(unsigned a, unsigned b)
 {
 	if (a == 0)
